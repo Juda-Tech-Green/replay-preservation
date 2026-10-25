@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:replay:preservation:record:0.1",
+  "title": "RE preservation observation v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "disc_id",
+    "recorded_utc",
+    "operation",
+    "inputs",
+    "statuses",
+    "evidence",
+    "limitations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "replay.preservation.record.v0.1"
+    },
+    "disc_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "recorded_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC only; CLI enforces offset zero."
+    },
+    "operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "statuses": {
+      "type": "object",
+      "required": [
+        "acquisition",
+        "sector_coverage",
+        "file_integrity",
+        "package_completeness",
+        "emulator_compatibility",
+        "actual_playability",
+        "historical_authenticity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "acquisition": {
+          "enum": [
+            "not_assessed",
+            "partial",
+            "complete",
+            "failed"
+          ]
+        },
+        "sector_coverage": {
+          "enum": [
+            "not_assessed",
+            "full",
+            "partial",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "file_integrity": {
+          "enum": [
+            "not_assessed",
+            "readable_unverified",
+            "structural_checks_passed",
+            "check_failed",
+            "changed"
+          ]
+        },
+        "package_completeness": {
+          "enum": [
+            "not_assessed",
+            "known_set_complete",
+            "known_set_incomplete",
+            "unknown"
+          ]
+        },
+        "emulator_compatibility": {
+          "enum": [
+            "not_tested",
+            "prepared",
+            "startup_verified",
+            "interactive_partial",
+            "checks_passed",
+            "failed",
+            "inconclusive"
+          ]
+        },
+        "actual_playability": {
+          "enum": [
+            "not_tested",
+            "unverified",
+            "limited_interactive_verified",
+            "defined_scope_verified",
+            "failed"
+          ]
+        },
+        "historical_authenticity": {
+          "enum": [
+            "unverified",
+            "reference_match",
+            "conflicting_reference"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authorization": {
+      "type": "object",
+      "description": "Historical scope only; never a transferable permission."
+    }
+  },
+  "description": "CLI additionally requires defined scope and passing human-confirmation evidence before verified interactive status. No dimension implies another."
+}

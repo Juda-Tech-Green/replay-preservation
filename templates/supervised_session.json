@@ -1,0 +1,11 @@
+{
+  "schema":"replay.preservation.session-proposal.v0.1",
+  "state":"proposal_only",
+  "execution_authorized":false,
+  "retries_authorized":0,
+  "limits_requiring_review":{"outer_wall_seconds":600,"emulator_deadline_seconds":570,"cpu_seconds_per_process":660,"address_space_bytes_per_process":1073741824},
+  "boundaries":["private authenticated virtual display; no host display sockets in guest","existing fixed framebuffer and allowlisted keyboard protocol","disposable files only; no evidence write access","no network or physical device access","bounded output and screenshots; verified cleanup"],
+  "verification_steps":["mark visible menu and capture screenshot","start NEW single-player game; do not load historical saves","mark level transition; confirm MAP01 identity and capture screenshot","confirm movement, turning, firing and use separately","test physical Pause/Break for DOOM II; do not instruct P as the pause key","quit through game menu","confirm historical-save and multiplayer utility non-use separately"],
+  "observation_policy":"Missing markers stay unknown. Record raw UI results and later human clarifications separately. A post-game screenshot is not gameplay evidence.",
+  "stop_policy":"One separately authorized execution only; stop on failed preflight; no automatic retry. A deadline is not by itself a game crash."
+}

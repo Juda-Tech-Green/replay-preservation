@@ -1,0 +1,19 @@
+{
+  "schema":"replay.preservation.record.v0.1",
+  "disc_id":"disc02-pilot",
+  "recorded_utc":"2026-10-25T00:00:00Z",
+  "operation":"pilot_preparation_example",
+  "inputs":[],
+  "statuses":{
+    "acquisition":"not_assessed",
+    "sector_coverage":"not_assessed",
+    "file_integrity":"not_assessed",
+    "package_completeness":"not_assessed",
+    "emulator_compatibility":"not_tested",
+    "actual_playability":"not_tested",
+    "historical_authenticity":"unverified"
+  },
+  "evidence":[],
+  "limitations":["Example only; replace disc identity and UTC timestamp for an actual observation. No acquisition or execution authorized."],
+  "scope":null
+}

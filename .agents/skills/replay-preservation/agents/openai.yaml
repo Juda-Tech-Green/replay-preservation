@@ -1,0 +1,4 @@
+interface:
+  display_name: "RE Preservation"
+  short_description: "Evidence-based historical software recovery workflow"
+  default_prompt: "Use $replay-preservation to assess verified local recovery artifacts and prepare the next preservation stage."

@@ -1,0 +1,7 @@
+# Reviewed build/verification tools only; no runtime dependencies.
+# Install inside a disposable virtual environment, never as system packages.
+build==1.6.1
+setuptools==84.2.1
+wheel==0.48.0
+packaging==26.3
+pyproject-hooks==1.3.3

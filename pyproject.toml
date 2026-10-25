@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "replay-preservation"
+version = "0.1.0a0"
+description = "Evidence-based offline analysis of historical software recovery artifacts"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "RE Preservation contributors"}]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Archiving",
+]
+
+[project.urls]
+Repository = "https://github.com/Juda-Tech-Green/replay-preservation"
+Issues = "https://github.com/Juda-Tech-Green/replay-preservation/issues"
+
+[project.scripts]
+replay-preservation = "replay_preservation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["replay_preservation*"]
+
+[tool.setuptools.data-files]
+"share/replay-preservation/schemas" = ["schemas/preservation-record-v0.1.schema.json"]
+"share/replay-preservation/templates" = ["templates/preservation_record.json", "templates/supervised_session.json"]

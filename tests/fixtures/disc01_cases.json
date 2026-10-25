@@ -1,0 +1,23 @@
+{
+  "description": "Metadata-only regression cases transcribed from Disc 01 reports; contains no game payload or local evidence paths.",
+  "source_bytes": 655992832,
+  "initial_status_bytes": {"+":147324928,"*":18102272,"-":4096,"?":490561536},
+  "t01": {"offset":434634752,"length":688128,"start_lba":212224,"end_lba":212559,"sectors":336},
+  "coverage_before": {"full":711,"partial":1,"unavailable":346},
+  "coverage_after": {"full":712,"partial":1,"unavailable":345},
+  "doom2_known_files":15,
+  "graphical_v2": {
+    "synthetic_test":false,
+    "accelerated_regression":false,
+    "observations":{},
+    "MAP01":{"result":"Pass","source":"human_confirmation","utc":"2026-10-25T02:37:46.256997+00:00"},
+    "controls":{
+      "movement":{"result":"Pass","source":"human_confirmation"},
+      "turning":{"result":"Pass","source":"human_confirmation"},
+      "firing":{"result":"Pass","source":"human_confirmation"},
+      "use":{"result":"Pass","source":"human_confirmation"},
+      "pause_resume":{"result":"Fail","source":"human_confirmation"},
+      "exit_through_game_menu":{"result":"Not tested","source":"not_confirmed"}
+    }
+  }
+}
